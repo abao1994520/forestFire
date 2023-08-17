@@ -1,0 +1,35 @@
+{
+    "version": 8,
+    "sources": {
+        "tianditu_img": {
+			"type": "raster",
+			"tiles": ["https://t1.tianditu.gov.cn/DataServer?T=img_w&x={x}&y={y}&l={z}&tk=17763402f97aa5d363379927f5ce70a6"],
+			"tileSize": 256
+		},
+		"tianditu_cia": {
+			"type": "raster",
+			"tiles": ["https://t1.tianditu.gov.cn/DataServer?T=cia_w&x={x}&y={y}&l={z}&tk=17763402f97aa5d363379927f5ce70a6"],
+			"tileSize": 256
+		},
+		"tianditu_vec": {
+			"type": "raster",
+			"tiles": ["https://t1.tianditu.gov.cn/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk=17763402f97aa5d363379927f5ce70a6"],
+			"tileSize": 256
+		},
+        "tianditu_cav": {
+			"type": "raster",
+			"tiles": ["https://t1.tianditu.gov.cn/DataServer?T=cva_w&x={x}&y={y}&l={z}&tk=17763402f97aa5d363379927f5ce70a6"],
+			"tileSize": 256
+		}
+    },
+	"fog": {},
+    "layers": [
+        {"id": "bg", "type": "background", "paint": {"background-color": "hsl(185, 3%, 83%)"}},
+		{"id": "sky", "type": "sky"},
+
+        {"id": "tianditu_img", "type": "raster", "source": "tianditu_img"},
+		{"id": "tianditu_cia", "type": "raster", "source": "tianditu_cia"},
+        {"id": "tianditu_vec", "type": "raster", "source": "tianditu_vec", "layout":{"visibility":"none"}},
+        {"id": "tianditu_cav", "type": "raster", "source": "tianditu_cav", "layout":{"visibility":"none"}}
+    ]
+}

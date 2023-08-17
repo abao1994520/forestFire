@@ -1,0 +1,177 @@
+
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+}
+
+// @include scrollBar();
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    outline: none !important;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    // color: $panel-word-color;
+}
+
+html,
+body {
+    height: 100%;
+    // font-size: $panel-app-font-size;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+em {
+    font-style: normal;
+}
+
+input,
+button,
+select,
+textarea {
+    outline: none;
+}
+
+i {
+    display: inline-block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.padding {
+    padding: 0 !important;
+}
+
+.margin {
+    margin: 0 !important;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+.pull-center {
+    text-align: center;
+}
+
+.pull-flex {
+    display: flex;
+}
+
+.pull-overflow {
+    overflow: hidden;
+}
+
+.pull-auto {
+    height: auto;
+    overflow: hidden;
+}
+
+.pull-height {
+    height: 100%;
+    overflow: hidden;
+}
+
+.pull-fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.grayMode {
+    filter: grayscale(100%);
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+    /*IE/7/6*/
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.i-left {
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    background-color: #1b8ef8;
+    border-radius: 3px;
+    margin-right: 10px;
+}
