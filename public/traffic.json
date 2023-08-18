@@ -7,6 +7,14 @@
 			"tiles": ["https://t1.tianditu.gov.cn/DataServer?T=img_w&x={x}&y={y}&l={z}&tk=17763402f97aa5d363379927f5ce70a6"],
 			"tileSize": 256
 		},
+		"dem":{
+			"type": "raster-dem",
+			"tiles": [
+				"mapbus://raster/dem/{z}/{x}/{y}.png"
+			],
+			"tileSize": 256,
+	  		"minzoom": 10
+		},
 		"tianditu_cia": {
 			"type": "raster",
 			"tiles": ["https://t1.tianditu.gov.cn/DataServer?T=cia_w&x={x}&y={y}&l={z}&tk=17763402f97aa5d363379927f5ce70a6"],
@@ -24,6 +32,7 @@
 		}
     },
 	"fog": {},
+	
     "layers": [
         {"id": "bg", "type": "background", "paint": {"background-color": "hsl(185, 3%, 83%)"}},
 		{"id": "sky", "type": "sky"},

@@ -42,7 +42,6 @@ class RootMap {
       )
 
       
-      // this.getRoadList(this.pointMap)
       // this.map.on('mousemove', e => {
       //   this.onMousemove(e, this.pointMap)
       // })
@@ -53,55 +52,30 @@ class RootMap {
       
     })
   }
-  getRoadList () {
-    proxy.get('./gps_line.geojson').then(res=>{
-      this.map.addSource('road', {
-        type: "geojson",
-        data: res
-      });
-      this.map.addLayer(
-        {"id": "road", "type": "line", "source": "road", "name": "道路",
-          "paint":{
-            "line-color": "#c9dd22",
-            "line-opacity": 0.7,
-            "line-width": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            4,
-            5.0,
-            12,
-            8.0
-            ]
-          },
-          "minzoom": 4
-        },
-        'pole'
-      );
-      //构造点
-      turf.featureEach(res, (currentFeature, featureIndex) => {
-        let pointCollection = {"type": "FeatureCollection", "features": []};
-        turf.coordEach(currentFeature, function (
-          currentCoord, 
-          coordIndex, 
-          featureIndex, 
-          multiFeatureIndex, 
-          geometryIndex
-        ){
-          pointCollection.features.push(
-            turf.point(currentCoord, {
-              dir: currentFeature.properties.path_list[coordIndex], 
-              pos: currentFeature.properties.pos_list[coordIndex],
-              roadIndex: coordIndex
-            })
-          );
-        });
-        this.pointMap.set(currentFeature.properties.roadcode, pointCollection);
-        
-      });
-    })
+  getMap() {
+      return this.map;
   }
-  
+
+  switchProjection() {
+      let projectionName = this.map.getProjection().name;
+      this.map.setProjection(projectionName == 'globe' ? 'mercator' : 'globe');
+      this.map.setPitch(projectionName == 'globe' ? 0 : 50, {
+          duration: 2000
+      });
+  }
+
+  switchTerrain() {
+      let terrain = this.map.getTerrain();
+      if (terrain == null) {
+          this.map.setTerrain({
+              'source': 'dem',
+              'exaggeration': 1.5
+          });
+      } else {
+          this.map.setTerrain(null);
+      }
+  }
+
   getPointData (e) {
     let rect = [
       [e.point.x - 1, e.point.y - 1],

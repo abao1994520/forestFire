@@ -9,7 +9,7 @@ import viteCompression from 'vite-plugin-compression'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/360',
+  base: './',
   resolve: {
     alias: {
       '@': resolve(__dirname, './src/'),
@@ -40,5 +40,18 @@ export default defineConfig({
     viteCompression({
       threshold: 10240
     })
-  ]
+  ],
+  server: {
+    proxy: {
+      // '/api': {
+      //   // target: 'http://192.168.0.201:85',
+      //   target: 'http://36.2.11.197:80',
+      //   // target : 'http://114.255.88.34:85'
+      //   //rewrite: (path)=>path.replace('/api', '')
+      // },
+      '/raster': {
+        target: 'http://192.168.0.201:85',
+      }
+    }
+  }
 })

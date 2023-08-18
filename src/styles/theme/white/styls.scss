@@ -1,0 +1,22 @@
+body.theme-white {
+    @import './variables';
+    background-color: #030a18;
+    color: #1890ff;
+    // background-color: $panel-bg-color;
+    // .n-statistic .n-statistic-value .n-statistic-value__content {
+    //     color: red !important;
+    // }
+    .AliHYAiHei {
+        color:  #FFF;
+    }
+    .panel {
+        background-color: #FFF;
+    }
+    .d-header {
+        background: #1C8FFA;
+    }
+    .wraper-maptool {
+        background: #FFF;
+        color: #707070;
+    }
+}

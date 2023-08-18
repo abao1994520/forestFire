@@ -1,11 +1,14 @@
 import { createApp } from 'vue'
 import { createPinia } from "pinia"
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
-import './style.scss'
+import './styles/index.scss'
 import router from './routers/router.js'
 import App from './App.vue'
 import plugin from './plugin.js'
 import naive from 'naive-ui'
+import moment from "moment";
+window.moment = moment
+
 
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);

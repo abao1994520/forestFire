@@ -11,13 +11,14 @@ Array.prototype.myForEach = async function(callback, thisArg) {
 export default {
   install: (app, options) => {
     let proxy = app.config.globalProperties;
+    
     //全局变量方便使用
     window.proxy = proxy;
 
     proxy.$loading = loadingBar;
     proxy.$message = message;
     proxy.$dialog = dialog;
-
+    
     //确定
     proxy.confirm = function(msg, okFun){
         dialog.create({
@@ -122,5 +123,6 @@ export default {
       }
       return proxy.ajax(url, null, 'GET');
     }
+    
   }
 }
