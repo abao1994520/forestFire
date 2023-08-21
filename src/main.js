@@ -7,8 +7,11 @@ import App from './App.vue'
 import plugin from './plugin.js'
 import naive from 'naive-ui'
 import moment from "moment";
+import _ from 'lodash';
+
 window.moment = moment
 
+window._ = _;
 
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);

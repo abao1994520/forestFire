@@ -73,7 +73,7 @@ const yingxiangType = [
 <style>
   .layer-switcher-wrap {
     position: absolute;
-    right: 10px;
+    right: 55px;
     bottom: 10px;
     z-index: 999;
     overflow: hidden;

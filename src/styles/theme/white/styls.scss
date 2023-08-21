@@ -1,7 +1,7 @@
 body.theme-white {
     @import './variables';
-    background-color: #030a18;
-    color: #1890ff;
+    // background-color: #030a18;
+    // color: #1890ff;
     // background-color: $panel-bg-color;
     // .n-statistic .n-statistic-value .n-statistic-value__content {
     //     color: red !important;
@@ -16,7 +16,7 @@ body.theme-white {
         background: #1C8FFA;
     }
     .wraper-maptool {
-        background: #FFF;
-        color: #707070;
+        background: rgba(0, 0, 0, 0.7);
+        color: #FFF;
     }
 }
