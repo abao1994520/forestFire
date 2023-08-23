@@ -5,12 +5,7 @@
 <script setup>
   // import { colors, numFormat } from './mapUtil'
   import { onMounted, onBeforeUnmount, watch } from 'vue';
-  const colorPool = {
-    '公路': '#69D4B6',
-    '运输': '#FFB080',
-    '水路': '#3DC8FF',
-    '执法': '#ff737e',
-  }
+  
   const props = defineProps({
     chartId: String,
     chartData: Array,
@@ -48,16 +43,17 @@
   })
   watch(() => props.chartData,
     (itemData) => {
-      console.log(1111, props.chartProps.chartYAxisName)
       option = {
         // color: colors,
         tooltip: {
           trigger: "axis",
-          valueFormatter: (value) => (value.toFixed(2) - 0) + (props.chartProps.unit || '元' )
+          valueFormatter: (value) => {
+            return value + (props.chartProps.unit || '元' )
+          }
         },
         grid: {
             left: 35,
-            right: 20,
+            right: 40,
             bottom: 10,
             top: 30,
             containLabel: true
@@ -72,6 +68,7 @@
         // },
         xAxis: {
           type: "category",
+          name: `${(props.chartProps.tooltipName || '元' )}`,
           axisLine: {
               // show: false
               lineStyle: {
@@ -86,6 +83,7 @@
         yAxis: {
           type: "value",
           scale: true,
+          max: props.chartProps.YMax || null,
           name: `${props.chartProps.chartYAxisName}（${(props.chartProps.unit || '元' )}）`
         },
         series: {

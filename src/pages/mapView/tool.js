@@ -7,45 +7,45 @@
 export const cityOptions = [{
 	value: `浙江省`,
 	label: `浙江省`,
-	pointData: [120.20, 30.30],
+	coordinates: [120.20, 30.30],
 	children: [{
 			value: `杭州市`,
 			label: `杭州市`,
-			pointData: [120.20, 30.30]
+			coordinates: [120.20, 30.30]
 		},
 		{
 			value: `宁波市`,
 			label: `宁波市`,
-			pointData: [121.549792, 29.868388]
+			coordinates: [121.549792, 29.868388]
 		},
 		{
 			value: `温州市`,
 			label: `温州市`,
-			pointData: [120.672111, 28.000575]
+			coordinates: [120.672111, 28.000575]
 
 		},
 		{
 			value: `嘉兴市`,
 			label: `嘉兴市`,
-			pointData: [120.750865, 30.762653]
+			coordinates: [120.750865, 30.762653]
 
 		},
 		{
 			value: `湖州市`,
 			label: `湖州市`,
-			pointData: [120.102398, 30.867198]
+			coordinates: [120.102398, 30.867198]
 
 		},
 		{
 			value: `金华市`,
 			label: `金华市`,
-			pointData: [119.649506, 29.089524]
+			coordinates: [119.649506, 29.089524]
 
 		},
 		{
 			value: `舟山市`,
 			label: `舟山市`,
-			pointData: [122.106863, 30.016028]
+			coordinates: [122.106863, 30.016028]
 
 		},
 	]
@@ -54,26 +54,110 @@ export const cityOptions = [{
 export const fireSiteNumber = [{
 		value: `CHN20230811-732`,
 		label: `CHN20230811-732`,
-		pointData: [121.549792, 29.868388]
+		// coordinates: [121.549792, 29.868388],
+		coordinates: [102.139986, 28.030009],
+		ly: 'NPP/VIIRS',
+		time: '2023-08-19 21:55',
+		dz: '杭州市樟木箐镇G55县道',
+		lx: '中覆盖度草地',
+		mj: '0.0026公顷',
+		kxd: '87%',
+		xys: '1个',
+		city: '杭州市',
+		isSpread: true
+	},
+	{
+		value: `CHN20230811-739`,
+		label: `CHN20230811-739`,
+		coordinates: [122.549792, 28.868388],
+		ly: 'NPP/VIIRS',
+		time: '2023-08-19 21:55',
+		dz: '杭州市樟木箐镇G55县道',
+		lx: '中覆盖度草地',
+		mj: '0.0026公顷',
+		kxd: '87%',
+		xys: '1个',
+		city: '杭州市'
 	},
 	{
 		value: `CHN20230811-486`,
 		label: `CHN20230811-486`,
-		pointData: [121.549792, 29.868388]
+		coordinates: [120.672111, 28.000575],
+		ly: 'NPP/VIIRS',
+		time: '2023-08-19 21:55',
+		dz: '温州市樟木箐镇G55县道',
+		lx: '中覆盖度草地',
+		mj: '0.0026公顷',
+		kxd: '87%',
+		xys: '1个',
+		city: '温州市'
 	},
 	{
 		value: `CHN20230811-248`,
 		label: `CHN20230811-248`,
-		pointData: [120.672111, 28.000575]
+		coordinates: [119.649506, 29.089524],
+		ly: 'NPP/VIIRS',
+		time: '2023-08-19 21:55',
+		dz: '金华市樟木箐镇G55县道',
+		lx: '中覆盖度草地',
+		mj: '0.0026公顷',
+		kxd: '87%',
+		xys: '1个',
+		city: '金华市'
 
 	},
 	{
 		value: `CHN20230811-249`,
 		label: `CHN20230811-249`,
-		pointData: [120.672111, 28.000575]
+		coordinates: [122.106863, 30.016028],
+		ly: 'NPP/VIIRS',
+		time: '2023-08-19 21:55',
+		dz: '舟山市樟木箐镇G55县道',
+		lx: '中覆盖度草地',
+		mj: '0.0026公顷',
+		kxd: '87%',
+		xys: '1个',
+		city: '舟山市'
 	},
 
 ]
+
+
+export const showModalData = [
+    {
+      name: '火场编号',
+      key: 'label'
+    },
+    {
+      name: '监测来源',
+      key: 'ly'
+    },
+    {
+      name: '更新时间',
+      key: 'time'
+    },
+    {
+      name: '详细地址',
+      key: 'dz'
+    },
+    {
+      name: '土地类型',
+      key: 'lx'
+    },
+    {
+      name: '明火面积',
+      key: 'mj'
+    },
+    {
+      name: '可信度',
+      key: 'kxd'
+    },
+    {
+      name: '像元数',
+      key: 'xys'
+    },
+  ]
+
 
 export const automatics = [{
 	value: `自动`,

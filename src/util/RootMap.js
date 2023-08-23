@@ -1,9 +1,23 @@
+import boardNotSelect from '@/assets/yellow_fire_point.png';
+
+export const pollutionImg = [
+  {
+      name: 'point',
+      img: boardNotSelect,
+  },
+  // {
+  //     name: 'point-select',
+  //     img: bhNotSelect,
+  // },
+]
 class RootMap {
   constructor(target, zoom = 7) {
     this.pointMap = new Map();
     this.map = new mapboxgl.Map({
       container: target,
-      center: [120.31520971304747, 30.076913662138196],
+      // center: [120.31520971304747, 30.076913662138196],
+      center: [102.139986, 28.030009],
+      
       zoom: zoom || 7,
       minZoom: 3,
       maxZoom: 18,
@@ -22,39 +36,26 @@ class RootMap {
     this.popup = new mapboxgl.Popup({
       closeButton: false
     });
-    this.map.on('load', () => {
 
-      this.addMapSource(
-        'road', 
-        'vector', 
-        [
-          // 'http://192.168.5.25:8080/shijing/api/mvt/{z}/{x}/{y}.mvt'
-          window.apiUrl + '/mvt/{z}/{x}/{y}.mvt'
-        ]
-      )
-      this.addMapGraphicalLayer(
-        'road',
-        'line',
-        'road', 
-        'img_road_list',
-        '#c9dd22',
-        // 'none'
-      )
-
-      
-      // this.map.on('mousemove', e => {
-      //   this.onMousemove(e, this.pointMap)
-      // })
-      // this.map.on('click', e => {
-      //   this.onClick(e)
-      // })
-
-      
+    pollutionImg.forEach((item) => {
+        this.map.loadImage(item.img, (error, image) => {
+            if (error) throw error;
+            this.map.addImage(item.name, image);
+        });
     })
+    
+    
   }
   getMap() {
       return this.map;
   }
+
+  removeLayer(LayerName) {
+    if (this.map.getLayer(LayerName)) {
+      this.map.removeLayer(LayerName);
+      this.map.removeSource(LayerName);
+    }
+  };
 
   switchProjection() {
       let projectionName = this.map.getProjection().name;
@@ -74,6 +75,22 @@ class RootMap {
       } else {
           this.map.setTerrain(null);
       }
+  }
+
+  addMouseReact ( id ) {
+    const self = this
+    this.map.on('mousemove', id, (e) => {
+      e.preventDefault()
+      const features = self.map.queryRenderedFeatures(e.point, {
+        layers: [id]
+      })
+      if (features.length > 0) {
+        self.map.getCanvas().style.cursor = 'pointer'
+      }
+    })
+    this.map.on('mouseleave', id, (e) => {
+      self.map.getCanvas().style.cursor = 'grab'
+    })
   }
 
   getPointData (e) {
