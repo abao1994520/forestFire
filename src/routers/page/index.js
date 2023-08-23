@@ -9,19 +9,13 @@ export default [
       {
         path: '/fireDetails',
         name: '火点详情',
-        component: () => import(/* webpackChunkName: "maintain" */ '@/pages/mapView/index.vue'),
-        meta: { keepAlive: true },
-      },
-      {
-        path: '/roadView',
-        name: '日常养护2',
-        component: () => import(/* webpackChunkName: "maintain" */ '@/pages/roadView/index.vue'),
+        component: () => import(/* webpackChunkName: "maintain" */ '@/pages/fireDetailsView/index.vue'),
         meta: { keepAlive: true },
       },
       {
         path: '/fireSpread',
         name: '火灾蔓延',
-        component: () => import(/* webpackChunkName: "maintain" */ '@/pages/exportView/index.vue'),
+        component: () => import(/* webpackChunkName: "maintain" */ '@/pages/mapView/index.vue'),
         meta: { keepAlive: true },
       }
     ]

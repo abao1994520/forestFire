@@ -5,7 +5,7 @@ window.apiUrl = window.roadImgUrl + '/shijing/api'
 // 最大化下（上）几张
 window.roadImgNumber = 5
 // 标题
-// window.headerTitle = '火情监测预警于指挥平台'
+window.headerTitle = '火情监测预警于指挥平台'
 window.header_pinyin = 'huoqingjianceyujingzhihuipingtai'
 // 进入360后几秒加载插件
 window.roadTime = 2000

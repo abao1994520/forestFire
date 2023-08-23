@@ -57,23 +57,28 @@
         </n-form>
       </div>
       <div class="charts">
+        <div class="panel_tltle">{{windChart.chartProps.title}}</div>
         <chartLineView
             :chartId="windChart.chartId"
             :chartData="windChart.chartData"
             :chartProps="windChart.chartProps"
-            style="height: 30%;"
+            style="height: 28%;"
           ></chartLineView>
+
+          <div class="panel_tltle">{{SpreadSpeedChart.chartProps.title}}</div>
           <chartLineView
             :chartId="SpreadSpeedChart.chartId"
             :chartData="SpreadSpeedChart.chartData"
             :chartProps="SpreadSpeedChart.chartProps"
-            style="height: 30%;margin-top: 16px;"
+            style="height: 28%;"
           ></chartLineView>
+
+          <div class="panel_tltle">{{SpreadAreaChart.chartProps.title}}</div>
           <chartLineView
             :chartId="SpreadAreaChart.chartId"
             :chartData="SpreadAreaChart.chartData"
             :chartProps="SpreadAreaChart.chartProps"
-            style="height: 30%;margin-top: 16px;"
+            style="height: 28%;"
           ></chartLineView>
       </div>
     </div>
@@ -105,20 +110,7 @@
       <template #header>
         <div>专题图</div>
       </template>
-      <div style="margin-top: 16px;min-height: 700px;" >
-          <n-tabs type="line" animated >
-              <n-tab-pane name="火点专题图" tab="火点专题图">
-                <img src="/images/zhuantiyingxiang.png" alt="" style="width: 100%;">
-              </n-tab-pane>
-              <n-tab-pane name="火点分布图" tab="火点分布图">
-                <img src="/images/baise.png" alt="" style="width: 100%;">
-
-              </n-tab-pane>
-              <n-tab-pane name="红外影像图" tab="红外影像图">
-                <img src="/images/lansebaidi.png" alt="" style="width: 100%;">
-              </n-tab-pane>
-            </n-tabs>
-      </div>
+      <imageDataView></imageDataView>
     </n-modal>
   </div>
 </template>
@@ -132,6 +124,7 @@ import layerSwitcher from "./layerSwitcher.vue";
 import chartLineView from "./chartLineView.vue";
 import TMapToolBar from "./TMapToolBar.vue";
 import timelineView from "./timelineView.vue";
+import imageDataView from "./imageDataView.vue";
 
 import { cityOptions, fireSiteNumber, automatics, winds, showModalData } from "./tool.js";
 import { formatNum, getMapPointList } from "./method";
@@ -175,6 +168,7 @@ const windChart = reactive({
   chartProps: {
     chartYAxisName: '速度',
     tooltipName: '时',
+    title: '风速',
     YMax: 5,
     name: "name",
     value: "value",
@@ -195,6 +189,7 @@ const SpreadSpeedChart = reactive({
   chartProps: {
     chartYAxisName: '蔓延速度',
     YMax: 0.01,
+    title: '火灾蔓延速度',
     tooltipName: '时',
     name: "name",
     value: "value",
@@ -216,6 +211,7 @@ const SpreadAreaChart = reactive({
     chartYAxisName: '蔓延面积',
     // YMax: 0.5,
     tooltipName: '时',
+    title: '火灾蔓延面积',
     name: "name",
     value: "value",
     unit: '公顷',

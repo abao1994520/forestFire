@@ -120,15 +120,19 @@ ul {
     display: flex;
 }
 
-.map-view-modal .modal-ul > li{
-	cursor: pointer;
-	padding: 5px;
-    border-radius: 4px;
+.panel_tltle {
+	background: url('/images/panel_title.png') no-repeat;
+	height: 30px;
+	font-family: "AliHYAiHei";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: left;
+	/* color: #e8f6ff; */
+	padding-left: 30px;
+	line-height: 30px;
 }
-.modal-ul > li:hover{
-	background: #ccc;
 
-}
+
 
 .n-form-item .n-form-item-feedback-wrapper {
 	min-height: 10px !important;

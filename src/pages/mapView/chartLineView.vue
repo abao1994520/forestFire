@@ -5,7 +5,7 @@
 <script setup>
   // import { colors, numFormat } from './mapUtil'
   import { onMounted, onBeforeUnmount, watch } from 'vue';
-  
+
   const props = defineProps({
     chartId: String,
     chartData: Array,
@@ -54,8 +54,8 @@
         grid: {
             left: 35,
             right: 40,
-            bottom: 10,
-            top: 30,
+            bottom: 16,
+            top: 35,
             containLabel: true
         },
         // legend: {
