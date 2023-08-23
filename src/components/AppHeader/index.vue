@@ -66,6 +66,10 @@ const nowTime = reactive({
 	today: new Date().getDay(),
 })
 
+setInterval(() => {
+  nowTime.time = getTime('HH:mm:ss')
+}, 1000)
+
 const weeks = {
 	1: '一',
 	2: '二',
