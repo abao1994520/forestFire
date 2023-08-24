@@ -43,12 +43,12 @@ export default defineConfig({
   ],
   server: {
     proxy: {
-      // '/api': {
-      //   // target: 'http://192.168.0.201:85',
-      //   target: 'http://36.2.11.197:80',
-      //   // target : 'http://114.255.88.34:85'
-      //   //rewrite: (path)=>path.replace('/api', '')
-      // },
+      '/api': {
+        // target: 'http://192.168.0.201:85',
+        target: 'http://36.2.11.197:80',
+        // target : 'http://114.255.88.34:85'
+        //rewrite: (path)=>path.replace('/api', '')
+      },
       '/raster': {
         target: 'http://192.168.0.201:85',
       }

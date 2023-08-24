@@ -250,7 +250,12 @@ const handleFireSiteNumber = ( value, data ) => {
     item.value = (index + Math.random()).toFixed(4)
   })
   model.spread = model.fireSpreadList[0]?.value || ''
-
+  if( data.coordinates ) {
+    rootMap.map.flyTo({
+      center: data.coordinates,
+      // zoom: 17
+    })
+  }
   
 }
 
@@ -325,26 +330,6 @@ const setMapPoint = ( data ) => {
     });
     rootMap.addMouseReact( layerNamePoint )
 }
-// 点击路段进入360实景
-const onRoadSelect = async item => {
-  let { oneData, nearest } = await getLatelyPoint(
-    targetPoint,
-    rootMap,
-    item.id
-  );
-  // 找到索引
-  let index = lodash.findIndex(oneData.img_list, function(o) {
-    return o.pnt_id == nearest.properties.pnt_id;
-  });
-  showModal.value = false;
-  router.push({
-    path: "/roadView", //B页面的路径
-    query: {
-      roadcode: item.id,
-      roadIndex: index
-    }
-  });
-};
 
 onUnmounted(() => {
   rootMap.map.remove();
