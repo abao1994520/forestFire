@@ -2,11 +2,11 @@
   <div class="fire-details-main">
     <!-- 地图 -->
     <div id="map">
-      <!-- 图层切换 -->
       <layerSwitcher></layerSwitcher>
       <t-map-tool-bar></t-map-tool-bar>
       <timelineView v-if="isTimeLine"></timelineView>
     </div>
+    <!-- 图层切换 -->
     <div class="right">
       <div class="form">
         <n-form
@@ -140,7 +140,6 @@ import {
 import lodash from "lodash";
 const layerNamePoint = 'fireDisasterPoint'
 const router = useRouter();
-let rootMap = null;
 const showModal = reactive({
   show: false,
   labels: showModalData,
@@ -251,7 +250,8 @@ const handleFireSiteNumber = ( value, data ) => {
   })
   model.spread = model.fireSpreadList[0]?.value || ''
   if( data.coordinates ) {
-    rootMap.map.flyTo({
+    
+    window.rootMap.map.flyTo({
       center: data.coordinates,
       // zoom: 17
     })
@@ -269,10 +269,10 @@ const handleUpdateValue = ( value ) => {
   }
   setMapPoint([model.fireSiteList[0]])
   handleFireSiteNumber(model.fireSiteList[0].value, model.fireSiteList[0])
-  rootMap.map.flyTo({
-    center: model.fireSiteList[0]?.coordinates,
-    // zoom: 17
-  })
+  // rootMap.map.flyTo({
+  //   center: model.fireSiteList[0]?.coordinates,
+  //   // zoom: 17
+  // })
 }
 
 
@@ -285,40 +285,39 @@ onMounted(async ()=>{
   // handleUpdateValue('杭州市')
 
 
-	rootMap = new RootMap('map', 9)
-  window.rootMap = rootMap
-  rootMap.map.on('load', () => {
+	window.rootMap = new RootMap('map', 9)
+  window.rootMap.map.on('load', () => {
     handleUpdateValue('杭州市')
-  })
-	rootMap.map.on('click', e => {
-    let rect = [
-      [e.point.x - 1, e.point.y - 1],
-      [e.point.x + 1, e.point.y + 1]
-    ];
-    let features = rootMap.map.queryRenderedFeatures(rect, {
-        layers: [layerNamePoint]
-      });
-		
-		if (features.length > 0) {
-      let data = features[0]
-      showModal.data = data.properties
-      showModal.show = true
-    }
+    window.rootMap.map.on('click', e => {
+      let rect = [
+        [e.point.x - 1, e.point.y - 1],
+        [e.point.x + 1, e.point.y + 1]
+      ];
+      let features = window.rootMap.map.queryRenderedFeatures(rect, {
+          layers: [layerNamePoint]
+        });
+      
+      if (features.length > 0) {
+        let data = features[0]
+        showModal.data = data.properties
+        showModal.show = true
+      }
+    })
   })
   
 })
 
 
 const setMapPoint = ( data ) => {
-    rootMap.removeLayer(layerNamePoint);
+    window.rootMap.removeLayer(layerNamePoint);
 
     let pointJsonP = getMapPointList(data);
 
-    rootMap.map.addSource(layerNamePoint, {
+    window.rootMap.map.addSource(layerNamePoint, {
         type: 'geojson',
         data: pointJsonP
     })
-    rootMap.map.addLayer({
+    window.rootMap.map.addLayer({
       id: layerNamePoint,
       type: "symbol",
       source: layerNamePoint,
@@ -328,11 +327,11 @@ const setMapPoint = ( data ) => {
         visibility: "visible"
       }
     });
-    rootMap.addMouseReact( layerNamePoint )
+    window.rootMap.addMouseReact( layerNamePoint )
 }
 
 onUnmounted(() => {
-  rootMap.map.remove();
+  window.rootMap.map.remove();
 });
 </script>
 

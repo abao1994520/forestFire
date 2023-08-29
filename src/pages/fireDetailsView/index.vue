@@ -2,10 +2,10 @@
   <div class="fire-details-main">
     <!-- 地图 -->
     <div id="map">
-      <!-- 图层切换 -->
       <layerSwitcher></layerSwitcher>
       <t-map-tool-bar></t-map-tool-bar>
     </div>
+    <!-- 图层切换 -->
     <div class="right">
       <div class="weather">
         <div class="panel_tltle" >气象支撑服务</div>
@@ -22,7 +22,7 @@
               <ul class="pull-right ul-select-list" style="width: 90%;margin-top: 0;">
                 <li v-for="(item, index) in weathers.items" 
                   :key="index"
-                  style="width: 25px;padding: 0 2px;"
+                  style="min-width: 25px;width: 25px;padding: 0 2px;"
                   :class="{'active': item._selected}"
                   @click="onSetTime(item)">
                   {{item.time}}h
@@ -54,7 +54,7 @@
               </n-ellipsis>
             </div>
             <div>
-              <n-checkbox-group  @update:value="handleForecastLevel" max="1">
+              <n-checkbox-group  @update:value="handleForecastLevel" :max="1">
                 <n-space item-style="display: flex;">
                   <n-checkbox value="FFDI_RATE_20230821_24_COTM" label="森林火险等级" />
                   <n-checkbox value="FFDI_INDEX_20230821_24_COTM" label="森林火险指数" />
@@ -205,7 +205,6 @@ import {
 import lodash from "lodash";
 const layerNamePoint = 'fireDisasterPoint'
 const router = useRouter();
-let rootMap = null;
 const layerName = 'imageLayer'
 
 const getTime = (key = 'HH:mm:ss') => {
@@ -328,7 +327,7 @@ const onSetTime = ( item, isUpdata = true ) => {
 const onSetWeatherType = ( item ) => {
   if( weathers.selectType == item.key ) {
     weathers.selectType = ''
-    rootMap.removeLayer(layerName);
+    window.rootMap.removeLayer(layerName);
   }else {
     weathers.selectType = item.key
     setMapImgLayer('weather/' + weathers.selectTime + '/' + weathers.selectType)
@@ -336,8 +335,8 @@ const onSetWeatherType = ( item ) => {
 }
 
 const setMapImgLayer = ( url ) => {
-    rootMap.removeLayer(layerName);
-    rootMap.map.addSource(layerName, {
+    window.rootMap.removeLayer(layerName);
+    window.rootMap.map.addSource(layerName, {
       type: 'image',
       url: `/images/${url}.png`,
       coordinates: [
@@ -348,7 +347,7 @@ const setMapImgLayer = ( url ) => {
         [72.005,16.925], // bottom-left
       ],
     })
-    rootMap.map.addLayer({
+    window.rootMap.map.addLayer({
       id: layerName,
       type: 'raster',
       source: layerName,
@@ -363,7 +362,7 @@ const handleForecastLevel = ( data, params ) => {
     // 选中
     setMapImgLayer(params.value)
   }else {
-    rootMap.removeLayer(layerName);
+    window.rootMap.removeLayer(layerName);
   }
   
 }
@@ -378,15 +377,15 @@ const onSetFireListTime = ( item ) => {
 
 
 const setMapPoint = ( data ) => {
-    rootMap.removeLayer(layerNamePoint);
+    window.rootMap.removeLayer(layerNamePoint);
 
     let pointJsonP = getMapPointList(data);
 
-    rootMap.map.addSource(layerNamePoint, {
+    window.rootMap.map.addSource(layerNamePoint, {
         type: 'geojson',
         data: pointJsonP
     })
-    rootMap.map.addLayer({
+    window.rootMap.map.addLayer({
       id: layerNamePoint,
       type: "symbol",
       source: layerNamePoint,
@@ -396,13 +395,13 @@ const setMapPoint = ( data ) => {
         visibility: "visible"
       }
     });
-    rootMap.addMouseReact( layerNamePoint )
+    window.rootMap.addMouseReact( layerNamePoint )
 }
 
 const onSetMapPoint = ( item ) => {
   showModal.data = item
   showModal.show = true
-  rootMap.map.flyTo({
+  window.rootMap.map.flyTo({
       center: item.coordinates,
       zoom: 14,
       speed: 5
@@ -412,43 +411,40 @@ const onSetMapPoint = ( item ) => {
 
 onMounted(async ()=>{
 
-	rootMap = new RootMap('map', 9)
-  window.rootMap = rootMap
+	window.rootMap = new RootMap('map', 9)
   onSetTime(weathers.items[0], false)
   fireListData.list = _.cloneDeep(fireSiteNumber)
-  
+	
 
+  window.rootMap.map.on('load', e => {
+    window.rootMap.map.on('click', e => {
+      let rect = [
+        [e.point.x - 1, e.point.y - 1],
+        [e.point.x + 1, e.point.y + 1]
+      ];
+      let features = window.rootMap.map.queryRenderedFeatures(rect, {
+          layers: [layerNamePoint]
+        });
+      
+      if (features.length > 0) {
+        let data = features[0]
+        showModal.data = data.properties
+        showModal.show = true
+      }
+    })
 
-	rootMap.map.on('click', e => {
-    let rect = [
-      [e.point.x - 1, e.point.y - 1],
-      [e.point.x + 1, e.point.y + 1]
-    ];
-    let features = rootMap.map.queryRenderedFeatures(rect, {
-        layers: [layerNamePoint]
-      });
-		
-		if (features.length > 0) {
-      let data = features[0]
-      showModal.data = data.properties
-      showModal.show = true
-    }
-  })
-
-  rootMap.map.on('load', e => {
+    
     setMapPoint(fireListData.list)
-    rootMap.map.flyTo({
+    window.rootMap.map.flyTo({
       center: fireSiteNumber[0].coordinates,
       // zoom: 17
     })
   })
 })
+onUnmounted(() => {
+  window.rootMap.map.remove();
+});
 
-
-
-// onUnmounted(() => {
-//   rootMap.map.remove();
-// });
 </script>
 
 <style lang="scss" scoped>
@@ -479,7 +475,8 @@ onMounted(async ()=>{
         cursor: pointer;
         border: 1px solid #69caff;
         color: #1b8ffa;
-        width: 44px;
+        // width: 44px;
+        min-width: 44px;
         text-align: center;
       }
       > li.active {

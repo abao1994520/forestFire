@@ -39,6 +39,10 @@ const menus = [
     name: "火点详情",
     url: "fireDetails"
   },
+  // {
+  //   name: "火点详情1",
+  //   url: "test"
+  // },
   {
     name: "火灾蔓延",
     url: "fireSpread"

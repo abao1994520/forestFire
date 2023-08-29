@@ -14,11 +14,11 @@
         </transition>
         <router-view class="vue-view"
                       v-if="!$route.meta.keepAlive" /> -->
-       <transition>
           <router-view v-slot="{ Component }">
-              <component :is="Component" />
+            <transition name="fade">
+                    <component :is="Component" />
+            </transition>
           </router-view>
-        </transition>
       </div>
   </div>
 </template>

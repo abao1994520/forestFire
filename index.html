@@ -4,18 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>火情监测预警于指挥平台</title>
+    <title></title>
     <link href="/lib/mapbox-gl/v2.10.0/mapbox-gl.css" rel="stylesheet">
     <script src="/lib/mapbox-gl/v2.10.0/mapbox-gl.js"></script>
-    <!-- <link href="/lib/mapbox-gl/v2.11/mapbox-gl.css" rel="stylesheet">
-    <script src="/lib/mapbox-gl/v2.11/mapbox-gl.js"></script> -->
+    <!-- <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script> -->
+    <!-- <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0MzE4IiwiYSI6ImNsbGg4ZThqczE5ZHYzZWw2dnhtbHIwOWIifQ.uiU59J39pEwE2UuB6kp-_Q';
+    </script> -->
+
     <script src="/lib/mapbox-gl/turf.min.js"></script>
     <script src="/lib/echarts.min.js"></script>
     
     <script src="/config.js"></script>
+
   </head>
   <body class="theme-white">
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+    <script>
+      document.title = window.headerTitle
+    </script>
   </body>
 </html>
