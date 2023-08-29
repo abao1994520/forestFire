@@ -1,10 +1,11 @@
 <template>
   <div class="fire-details-main">
     <!-- 地图 -->
-    <div id="map">
+    <div id="map-details">
       <layerSwitcher></layerSwitcher>
       <t-map-tool-bar></t-map-tool-bar>
     </div>
+    
     <!-- 图层切换 -->
     <div class="right">
       <div class="weather">
@@ -411,7 +412,7 @@ const onSetMapPoint = ( item ) => {
 
 onMounted(async ()=>{
 
-	window.rootMap = new RootMap('map', 9)
+	window.rootMap = new RootMap('map-details', 9)
   onSetTime(weathers.items[0], false)
   fireListData.list = _.cloneDeep(fireSiteNumber)
 	
@@ -443,6 +444,8 @@ onMounted(async ()=>{
 })
 onUnmounted(() => {
   window.rootMap.map.remove();
+  window.rootMap = null
+
 });
 
 </script>
@@ -451,7 +454,7 @@ onUnmounted(() => {
 .fire-details-main {
   height: 100%;
   position: relative;
-  #map {
+  #map-details {
     position: absolute;
     top: 0;
     bottom: 0;

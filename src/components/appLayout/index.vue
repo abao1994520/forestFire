@@ -15,9 +15,7 @@
         <router-view class="vue-view"
                       v-if="!$route.meta.keepAlive" /> -->
           <router-view v-slot="{ Component }">
-            <transition name="fade">
                     <component :is="Component" />
-            </transition>
           </router-view>
       </div>
   </div>

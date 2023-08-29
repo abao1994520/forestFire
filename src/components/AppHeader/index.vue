@@ -22,9 +22,9 @@
       <!-- <div class="d-header-right"></div> -->
       <div class="d-header-nav">
         <span
-          v-for="(item, index) in menus"
+          v-for="(item, index) in menus.data"
           :key="index"
-          :class="{'active':item.url===menu1.url}"
+          :class="{'active': item._selected}"
           @click="menu1_click(item)"
         >{{item.name}}</span>
       </div>
@@ -33,32 +33,36 @@
 </template>
 
 <script setup>
-import { onBeforeRouteUpdate } from "vue-router";
-const menus = [
-  {
-    name: "火点详情",
-    url: "fireDetails"
-  },
-  // {
-  //   name: "火点详情1",
-  //   url: "test"
-  // },
-  {
-    name: "火灾蔓延",
-    url: "fireSpread"
-  },
-];
-const menu1 = ref({});
+import { nextTick } from "vue";
 
 let headerTitle = window.headerTitle;
 let header_pinyin = window.header_pinyin;
-onBeforeRouteUpdate((to) => {
-  let name = to.name
-  for (let item of menus) {
-    if (name == item.name) {
-      menu1.value = item;
-    }
-  }
+// onBeforeRouteUpdate((to) => {
+//   let name = to.name
+//   for (let item of menus) {
+//     if (name == item.name) {
+//       menu1.data.name = item.name;
+//       menu1.data.url = item.url;
+//     }
+//   }
+// })
+const menus = reactive({
+  data: [
+    {
+      name: "火点详情",
+      url: "fireDetails",
+      _selected: false
+    },
+    // {
+    //   name: "火点详情1",
+    //   url: "test"
+    // },
+    {
+      name: "火灾蔓延",
+      url: "fireSpread",
+      _selected: false
+    },
+  ]
 })
 
 const getTime = (key = 'HH:mm:ss') => {
@@ -87,9 +91,9 @@ const weeks = {
 onMounted(() => {
   //获取当前路由的路径，如果是'/'则默认加载第一个菜单
     let name = proxy.$route.name;
-    for (let item of menus) {
+    for (let item of menus.data) {
       if (name == item.name) {
-        menu1.value = item;
+        item._selected = true
       }
     }
 });
@@ -97,20 +101,21 @@ onMounted(() => {
 
 
 //一级菜单点击
-function menu1_click(item) {
+const menu1_click = async (item) => {
   //一级菜单有url
   if (item.name) {
-	  menu1.value = item;
-    proxy.$router.push({
-      name: item.name
-    });
+    _.forEach(menus.data, son => {
+      son._selected = false
+    })
+
+    item._selected = true
+    await nextTick(() => {
+      proxy.$router.push({
+        name: item.name
+      });
+    })
+    
   }
-  //   test
-  // if (item.menuName == "行业监管") {
-  //   proxy.$router.push({
-  //     name: '行业监管'
-  //   })
-  // }
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
-  <div class="fire-details-main">
+  <div class="fire-spread-main">
     <!-- 地图 -->
-    <div id="map">
+    <div id="map-spread">
       <layerSwitcher></layerSwitcher>
       <t-map-tool-bar></t-map-tool-bar>
       <timelineView v-if="isTimeLine"></timelineView>
@@ -285,7 +285,7 @@ onMounted(async ()=>{
   // handleUpdateValue('杭州市')
 
 
-	window.rootMap = new RootMap('map', 9)
+	window.rootMap = new RootMap('map-spread', 9)
   window.rootMap.map.on('load', () => {
     handleUpdateValue('杭州市')
     window.rootMap.map.on('click', e => {
@@ -332,14 +332,15 @@ const setMapPoint = ( data ) => {
 
 onUnmounted(() => {
   window.rootMap.map.remove();
+  window.rootMap = null
 });
 </script>
 
 <style lang="scss" scoped>
-.fire-details-main {
+.fire-spread-main {
   height: 100%;
   position: relative;
-  #map {
+  #map-spread {
     position: absolute;
     top: 0;
     bottom: 0;
