@@ -14,26 +14,9 @@ export const cityOptions = [{
 			coordinates: [120.20, 30.30]
 		},
 		{
-			value: `宁波市`,
-			label: `宁波市`,
-			coordinates: [121.549792, 29.868388]
-		},
-		{
 			value: `温州市`,
 			label: `温州市`,
 			coordinates: [120.672111, 28.000575]
-
-		},
-		{
-			value: `嘉兴市`,
-			label: `嘉兴市`,
-			coordinates: [120.750865, 30.762653]
-
-		},
-		{
-			value: `湖州市`,
-			label: `湖州市`,
-			coordinates: [120.102398, 30.867198]
 
 		},
 		{
@@ -46,6 +29,24 @@ export const cityOptions = [{
 			value: `舟山市`,
 			label: `舟山市`,
 			coordinates: [122.106863, 30.016028]
+
+		},
+		{
+			value: `宁波市`,
+			label: `宁波市`,
+			coordinates: [121.549792, 29.868388]
+		},
+		
+		{
+			value: `嘉兴市`,
+			label: `嘉兴市`,
+			coordinates: [120.750865, 30.762653]
+
+		},
+		{
+			value: `湖州市`,
+			label: `湖州市`,
+			coordinates: [120.102398, 30.867198]
 
 		},
 	]
