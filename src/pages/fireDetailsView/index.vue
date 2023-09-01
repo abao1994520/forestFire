@@ -412,7 +412,9 @@ const onSetMapPoint = ( item ) => {
 
 onMounted(async ()=>{
 
-	window.rootMap = new RootMap('map-details', 9)
+	window.rootMap = new RootMap('map-details', {
+    zoom: 9
+  })
   onSetTime(weathers.items[0], false)
   fireListData.list = _.cloneDeep(fireSiteNumber)
 	

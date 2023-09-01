@@ -53,14 +53,14 @@ const menus = reactive({
       url: "fireDetails",
       _selected: false
     },
-    // {
-    //   name: "火点详情1",
-    //   url: "test"
-    // },
     {
       name: "火灾蔓延",
       url: "fireSpread",
       _selected: false
+    },
+    {
+      name: "灾后评估",
+      url: "postDisasterAssess"
     },
   ]
 })

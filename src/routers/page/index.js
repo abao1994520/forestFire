@@ -13,9 +13,9 @@ export default [
         meta: { keepAlive: true },
       },
       {
-        path: '/test',
-        name: '火点详情1',
-        component: () => import(/* webpackChunkName: "maintain" */ '@/pages/test/index.vue'),
+        path: '/postDisasterAssess',
+        name: '灾后评估',
+        component: () => import(/* webpackChunkName: "maintain" */ '@/pages/postDisasterAssess/index.vue'),
         meta: { keepAlive: true },
       },
       {

@@ -11,14 +11,16 @@ export const pollutionImg = [
   // },
 ]
 class RootMap {
-  constructor(target, zoom = 7) {
+  constructor(target, option = {
+    zoom: 7,
+    center: [102.139986, 28.030009]
+  }) {
     this.pointMap = new Map();
     this.map = new mapboxgl.Map({
       container: target,
       // center: [120.31520971304747, 30.076913662138196],
-      center: [102.139986, 28.030009],
-      
-      zoom: zoom || 7,
+      center: option.center,
+      zoom: option.zoom || 7,
       minZoom: 3,
       maxZoom: 18,
       pitch: 0,

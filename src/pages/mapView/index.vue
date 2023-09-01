@@ -18,7 +18,7 @@
           :style="{
             maxWidth: '640px'
           }"
-        >
+          >
           <n-form-item label="选择区域:">
             <n-cascader
               v-model:value="model.region"
@@ -285,7 +285,9 @@ onMounted(async ()=>{
   // handleUpdateValue('杭州市')
 
 
-	window.rootMap = new RootMap('map-spread', 9)
+	window.rootMap = new RootMap('map-spread', {
+    zoom: 9
+  })
   window.rootMap.map.on('load', () => {
     handleUpdateValue('杭州市')
     window.rootMap.map.on('click', e => {

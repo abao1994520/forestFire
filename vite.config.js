@@ -42,7 +42,9 @@ export default defineConfig({
     })
   ],
   server: {
-    proxy: {
+      host: '0.0.0.0',
+      // port: 9999,
+      proxy: {
       '/api': {
         // target: 'http://192.168.0.201:85',
         target: 'http://36.2.11.197:80',
