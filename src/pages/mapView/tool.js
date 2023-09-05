@@ -70,7 +70,7 @@ export const fireSiteNumber = [{
 	{
 		value: `CHN20230811-739`,
 		label: `CHN20230811-739`,
-		coordinates: [122.549792, 28.868388],
+		coordinates: [120.549792, 28.868388],
 		ly: 'NPP/VIIRS',
 		time: '2023-08-19 21:55',
 		dz: '杭州市樟木箐镇G55县道',

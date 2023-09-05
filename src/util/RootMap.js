@@ -13,7 +13,7 @@ export const pollutionImg = [
 class RootMap {
   constructor(target, option = {
     zoom: 7,
-    center: [102.139986, 28.030009]
+    center: [121.549792, 29.868388]
   }) {
     this.pointMap = new Map();
     this.map = new mapboxgl.Map({

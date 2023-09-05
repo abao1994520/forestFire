@@ -1,5 +1,4 @@
-const tdlxfxList = [
-	{
+const tdlxfxList = [{
 		name: '常绿阔叶林',
 		value: 121.12,
 	},
@@ -24,8 +23,7 @@ const tdlxfxList = [
 		value: 0.08,
 	}
 ]
-const lmlxfxList = [
-	{
+const lmlxfxList = [{
 		name: '常绿阔叶林',
 		value: 121.12,
 	},
@@ -38,7 +36,7 @@ const lmlxfxList = [
 		value: 0.07,
 	}
 ]
-const xNameAxis = [
+export const xNameAxis = [
 	'3/1',
 	'3/2',
 	'3/3',
@@ -58,10 +56,9 @@ const getRandomInt = (min, max) => {
 	max = Math.floor(max);
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-   
+
 const getTimeTypeData = (min, max) => {
-	return [
-		{
+	return [{
 			name: '本月',
 			value: _.map(xNameAxis, item => {
 				return getRandomInt(min, max)
@@ -79,23 +76,21 @@ const getTimeTypeData = (min, max) => {
 				return getRandomInt(min, max)
 			})
 		}
-		
+
 	]
 }
 export const fireSiteNumber = [{
 		value: `CHN20230811-732`,
 		label: `CHN20230811-732`,
-		// coordinates: [121.549792, 29.868388],
-		coordinates: [102.139986, 28.030009],
+		coordinates: [121.549792, 29.868388],
 		ly: 'NPP/VIIRS',
 		time: '2023-08-19 21:55',
 		dz: '杭州市樟木箐镇G55县道',
 		lx: '中覆盖度草地',
-		observeList: [
-			{
-				itme: '2023-08-19 21:55',
-		label: `CHN20230811-732`,
-		type: 'H9/AHI',
+		observeList: [{
+				time: '2023-08-19 21:55',
+				label: `CHN20230811-732`,
+				type: 'H9/AHI',
 				xys: 1,
 				dz: '杭州市樟木箐镇G55县道',
 				mj: '0.0026公顷',
@@ -104,9 +99,9 @@ export const fireSiteNumber = [{
 				city: '杭州市',
 			},
 			{
-				itme: '2023-08-19 21:55',
-		label: `CHN20230811-732`,
-		type: 'H9/AHI',
+				time: '2023-08-19 21:55',
+				label: `CHN20230811-732`,
+				type: 'H9/AHI',
 				xys: 1,
 				dz: '杭州市樟木箐镇G55县道',
 				mj: '0.0026公顷',
@@ -117,16 +112,15 @@ export const fireSiteNumber = [{
 		],
 		tdlxfx: {
 			unit: '公顷',
-			name: '土地类型分析',
+			name: '土地',
 			list: tdlxfxList
 		},
-		tdlxfx: {
+		lmlxfx: {
 			unit: '公顷',
-			name: '林木类型分析',
+			name: '林木',
 			list: lmlxfxList
 		},
-		qxfx: [
-			{
+		qxfx: [{
 				name: '气温',
 				unit: '℃',
 				children: getTimeTypeData(15, 30)
@@ -151,16 +145,15 @@ export const fireSiteNumber = [{
 	{
 		value: `CHN20230811-739`,
 		label: `CHN20230811-739`,
-		coordinates: [122.549792, 28.868388],
+		coordinates: [120.549792, 28.868388],
 		ly: 'NPP/VIIRS',
 		time: '2023-08-19 21:55',
 		dz: '杭州市樟木箐镇G55县道',
 		lx: '中覆盖度草地',
-		observeList: [
-			{
-				itme: '2023-08-19 21:55',
-		label: `CHN20230811-739`,
-		type: 'H9/AHI',
+		observeList: [{
+				time: '2023-08-19 21:55',
+				label: `CHN20230811-739`,
+				type: 'H9/AHI',
 				xys: 1,
 				dz: '杭州市樟木箐镇G55县道',
 				mj: '0.0026公顷',
@@ -169,9 +162,9 @@ export const fireSiteNumber = [{
 				city: '杭州市',
 			},
 			{
-				itme: '2023-08-19 21:55',
-		label: `CHN20230811-739`,
-		type: 'H9/AHI',
+				time: '2023-08-19 21:55',
+				label: `CHN20230811-739`,
+				type: 'H9/AHI',
 				xys: 1,
 				dz: '杭州市樟木箐镇G55县道',
 				mj: '0.0026公顷',
@@ -182,16 +175,15 @@ export const fireSiteNumber = [{
 		],
 		tdlxfx: {
 			unit: '公顷',
-			name: '土地类型分析',
+			name: '土地',
 			list: tdlxfxList
 		},
-		tdlxfx: {
+		lmlxfx: {
 			unit: '公顷',
-			name: '林木类型分析',
+			name: '林木',
 			list: lmlxfxList
 		},
-		qxfx: [
-			{
+		qxfx: [{
 				name: '气温',
 				unit: '℃',
 				children: getTimeTypeData(15, 30)
@@ -221,11 +213,10 @@ export const fireSiteNumber = [{
 		time: '2023-08-19 21:55',
 		dz: '杭州市樟木箐镇G55县道',
 		lx: '中覆盖度草地',
-		observeList: [
-			{
-				itme: '2023-08-19 21:55',
-		value: `CHN20230811-486`,
-		type: 'H9/AHI',
+		observeList: [{
+				time: '2023-08-19 21:55',
+				value: `CHN20230811-486`,
+				type: 'H9/AHI',
 				xys: 1,
 				dz: '杭州市樟木箐镇G55县道',
 				mj: '0.0026公顷',
@@ -234,9 +225,9 @@ export const fireSiteNumber = [{
 				city: '杭州市',
 			},
 			{
-				itme: '2023-08-19 21:55',
-		value: `CHN20230811-486`,
-		type: 'H9/AHI',
+				time: '2023-08-19 21:55',
+				value: `CHN20230811-486`,
+				type: 'H9/AHI',
 				xys: 1,
 				dz: '杭州市樟木箐镇G55县道',
 				mj: '0.0026公顷',
@@ -247,16 +238,15 @@ export const fireSiteNumber = [{
 		],
 		tdlxfx: {
 			unit: '公顷',
-			name: '土地类型分析',
+			name: '土地',
 			list: tdlxfxList
 		},
-		tdlxfx: {
+		lmlxfx: {
 			unit: '公顷',
-			name: '林木类型分析',
+			name: '林木',
 			list: lmlxfxList
 		},
-		qxfx: [
-			{
+		qxfx: [{
 				name: '气温',
 				unit: '℃',
 				children: getTimeTypeData(15, 30)
@@ -281,38 +271,51 @@ export const fireSiteNumber = [{
 ]
 
 
-export const showModalData = [
-    {
-      name: '火场编号',
-      key: 'label'
-    },
-    {
-      name: '监测来源',
-      key: 'ly'
-    },
-    {
-      name: '更新时间',
-      key: 'time'
-    },
-    {
-      name: '详细地址',
-      key: 'dz'
-    },
-    {
-      name: '土地类型',
-      key: 'lx'
-    },
-    {
-      name: '明火面积',
-      key: 'mj'
-    },
-    {
-      name: '可信度',
-      key: 'kxd'
-    },
-    {
-      name: '像元数',
-      key: 'xys'
-    },
-  ]
+export const showModalData = [{
+		name: '火场编号',
+		key: 'label'
+	},
+	{
+		name: '监测来源',
+		key: 'type'
+	},
+	{
+		name: '更新时间',
+		key: 'time'
+	},
+	{
+		name: '详细地址',
+		key: 'dz'
+	},
+	{
+		name: '土地类型',
+		key: 'lx'
+	},
+	{
+		name: '明火面积',
+		key: 'mj'
+	},
+	{
+		name: '可信度',
+		key: 'kxd'
+	},
+	{
+		name: '像元数',
+		key: 'xys'
+	},
+]
 
+export const qxfxType = [
+	{
+		name: '气温',
+	},
+	{
+		name: '湿度',
+	},
+	{
+		name: '降水量',
+	},
+	{
+		name: '风力',
+	},
+]

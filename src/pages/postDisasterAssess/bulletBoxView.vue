@@ -22,7 +22,7 @@
   const props = defineProps(['title']);
   // 修改父组件传的值
 const handleCollect = () => {
-  emit('update:showModal.show', false)
+  emit('update:showModal', false)
 }
 </script>
 
@@ -31,13 +31,22 @@ const handleCollect = () => {
 .bullet-box {
   // height: 33.3333%;
   // width: 50%;
-  margin: 10px;
+  // margin: 10px;
   width: 100%;
-  background: rgba($color: #FFF, $alpha: 0.7);
+  background: rgba($color: #FFF, $alpha: 0.85);
   padding: 10px;
   box-sizing: border-box;
   border-radius: 6px;
   height: 100%;
+  box-shadow: 1px 1px 5px #707070;
+  position: relative;
+  .content {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 
 </style>

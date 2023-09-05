@@ -285,9 +285,7 @@ onMounted(async ()=>{
   // handleUpdateValue('杭州市')
 
 
-	window.rootMap = new RootMap('map-spread', {
-    zoom: 9
-  })
+	window.rootMap = new RootMap('map-spread')
   window.rootMap.map.on('load', () => {
     handleUpdateValue('杭州市')
     window.rootMap.map.on('click', e => {
