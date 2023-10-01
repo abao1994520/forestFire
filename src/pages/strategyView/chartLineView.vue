@@ -18,7 +18,13 @@ onMounted(async () => {
   chartDom = document.getElementById(props.chartId);
   myChart = echarts.init(chartDom);
   let option = {
-    tooltip: {},
+    tooltip: {
+      extraCssText: 'max-width: 400px;white-space:pre-wrap;',
+      textStyle: {
+        // width: 200,
+        // overflow: 'break'
+      }
+    },
     // grid: {
     //   left: '50%',
     //   right: '10%',
