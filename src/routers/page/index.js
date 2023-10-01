@@ -23,7 +23,14 @@ export default [
         name: '火灾蔓延',
         component: () => import(/* webpackChunkName: "maintain" */ '@/pages/mapView/index.vue'),
         meta: { keepAlive: true },
-      }
+      },
+      {
+        path: '/strategyView',
+        name: '打火策略',
+        component: () => import(/* webpackChunkName: "maintain" */ '@/pages/strategyView/index.vue'),
+        meta: { keepAlive: true },
+      },
+      
     ]
   }
   

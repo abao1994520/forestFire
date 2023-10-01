@@ -1,0 +1,335 @@
+export const xiangqing = [
+	{
+		title: "位置",
+		key: "weizhi",
+		align: 'center',
+	},
+	{
+		title: "季节",
+		key: "jijie",
+		align: 'center',
+	},
+	{
+		title: "风力",
+		key: "fengli",
+		align: 'center',
+	},
+	{
+		title: "风向",
+		key: "fengxiang",
+		align: 'center',
+		width: 60,
+	},
+	{
+		title: "火线",
+		key: "huoxian",
+		align: 'center',
+	},
+	{
+		title: "火势",
+		key: "huoshi",
+		align: 'center',
+		width: 60,
+	},
+	{
+		title: "蔓延",
+		key: "manyan",
+		align: 'center',
+	},
+	{
+		title: "地形",
+		key: "dixing",
+		align: 'center',
+	},
+	{
+		title: "坡度",
+		key: "podu",
+		align: 'center',
+		width: 60,
+	},
+	{
+		title: "水源",
+		key: "shuiyuan",
+		align: 'center',
+	},
+	{
+		title: "林木种类",
+		key: "linmuzhonglei",
+		align: 'center',
+		width: 140,
+	}
+]
+export const createCols = [{
+		title: "序号",
+		key: "index",
+		align: 'center',
+		width: 50,
+	},
+	{
+		title: "打火技战法",
+		key: "name",
+		align: 'center',
+		width: 100,
+	},
+	{
+		title: "适用条件",
+		key: "attrs",
+		align: 'center',
+		children: xiangqing
+	},
+	{
+		title: "装备/实施方案",
+		key: "fangan",
+		align: 'center',
+		resizable: true,
+		width: 400,
+	},
+	{
+		title: "参考文献",
+		key: "wenxian",
+		align: 'center',
+		width: 300,
+	},
+]
+
+export const tableData = [{
+		name: '双线阻击、隔离封控',
+		weizhi: '中俄边境',
+		jijie: '春',
+		fengli: '低',
+		fengxiang: '逆风',
+		huoxian: '短',
+		huoshi: '小',
+		manyan: '慢',
+		dixing: '',
+		podu: '平坡',
+		shuiyuan: '无',
+		linmuzhonglei: '',
+		fangan: '装备：水罐车；油锯、割灌机、铁 锹、砍刀等。实施方案：①水罐灭火；②利用油锯、割灌机、铁 锹、砍刀等装备加宽加深开设土隔离带，及时清除剩余可燃物。',
+		wenxian: '论文：《“四击法”扑灭入境火——中俄边境林区基本灭火战法研究_崔国栋》',
+	},
+	{
+		name: '一路追击、待机拦截',
+		weizhi: '中俄边境',
+		jijie: '春',
+		fengli: '低',
+		fengxiang: '多变',
+		huoxian: '短',
+		huoshi: '',
+		manyan: '慢',
+		dixing: '',
+		podu: '平坡',
+		shuiyuan: '无',
+		linmuzhonglei: '',
+		fangan: '装备：森林消防车、运兵车。实施方案：队伍：①以载人载水方式，依托边境巡逻道沿火线发展方向平行跟进，通过化灭压制、水灭拦截、常规清理三个环节进行扑火；' +
+			'②根据火线长度及火势，通过灭火弹压制火线 锹、砍刀等。实施方案：①水罐灭火；②利用油锯、割灌机、铁 锹、砍刀等装备加宽加深开设土隔离带，及时清除剩余可燃物。',
+		wenxian: '论文：《“四击法”扑灭入境火——中俄边境林区基本灭火战法研究_崔国栋》'
+	},
+	{
+		name: '多路出击、分段歼灭',
+		weizhi: '中俄边境',
+		jijie: '春',
+		fengli: '中',
+		fengxiang: '逆风',
+		huoxian: '长',
+		huoshi: '猛烈',
+		manyan: '快',
+		dixing: '',
+		podu: '平坡',
+		shuiyuan: '无',
+		linmuzhonglei: '',
+		fangan: '装备： 森林消防车、输水管线作业车、水泵和风力灭火机等。' +
+			'实施方案：就近投入兵力，重要地点投入大量兵力，负责3000米至5000米地段堵截火线任务',
+		wenxian: '论文：《“四击法”扑灭入境火——中俄边境林区基本灭火战法研究_崔国栋》'
+	},
+	{
+		name: '夺取战机、控制险点',
+		weizhi: '东北林区',
+		jijie: '',
+		fengli: '',
+		fengxiang: '',
+		huoxian: '',
+		huoshi: '小',
+		manyan: '',
+		dixing: '开阔',
+		podu: '平坡',
+		shuiyuan: '有',
+		linmuzhonglei: '',
+		fangan: '装备：消防车、风力灭火机、水泵' +
+			'实施方案：①先期投入风力灭火机可以直接扑打位置的力量；②设置3000至5000米地段堵截任务',
+		wenxian: '论文：《关于长白山核心区灭火战法运用的几点思考_王琳》'
+	},
+	{
+		name: '打清结合，稳步推进',
+		weizhi: '闽北地区',
+		jijie: '',
+		fengli: '',
+		fengxiang: '',
+		huoxian: '',
+		huoshi: '',
+		manyan: '四处蔓延',
+		dixing: '山势高耸陡峭',
+		podu: '陡坡',
+		shuiyuan: '有',
+		linmuzhonglei: '杉木、马尾松、黄山松',
+		fangan: '实施方案：通过灭火机具来扑火',
+		wenxian: '论文：《闽北地区灭火作战特点规律研究_杨福义》'
+	},
+	{
+		name: '泵车结合，以水灭火',
+		weizhi: '闽北地区',
+		jijie: '',
+		fengli: '',
+		fengxiang: '',
+		huoxian: '',
+		huoshi: '',
+		manyan: '',
+		dixing: '',
+		podu: '',
+		shuiyuan: '有',
+		linmuzhonglei: '',
+		fangan: '实施方案：通过灭火水泵、森林消防车供水来扑火',
+		wenxian: '论文：《闽北地区灭火作战特点规律研究_杨福义》'
+	},
+	{
+		name: '上山火“顺势打”',
+		weizhi: '东北、西南等边远 山区及东南丘陵地带',
+		jijie: '',
+		fengli: '强',
+		fengxiang: '上坡',
+		huoxian: '',
+		huoshi: '',
+		manyan: '',
+		dixing: '',
+		podu: '',
+		shuiyuan: '',
+		linmuzhonglei: '',
+		fangan: '实施方案：①顺着火势方向，先从两翼突破，控制火线，再顺势向火头方向扑打，直至消灭火头；' +
+			'②当燃烧的火焰超过 3 米以上时，从尾部跟进的灭火队伍要保持至少百米以上距离进行扑打',
+		wenxian: '论文：《扑救山岳丛林地火灾常见战法研究_赵国刚》'
+	},
+	{
+		name: '下山火“堵截打”',
+		weizhi: '东北、西南等边远 山区及东南丘陵地带',
+		jijie: '',
+		fengli: '',
+		fengxiang: '',
+		huoxian: '',
+		huoshi: '弱',
+		manyan: '慢',
+		dixing: '',
+		podu: '斜坡',
+		shuiyuan: '无',
+		linmuzhonglei: '',
+		fangan: '实施方案：采取沿迹地边缘点烧的方法，通过两翼或多点 进行突破。',
+		wenxian: '论文：《扑救山岳丛林地火灾常见战法研究_赵国刚》'
+	},
+	{
+		name: '先控后清、步步为营',
+		weizhi: '黑龙江地区',
+		jijie: '夏',
+		fengli: '',
+		fengxiang: '',
+		huoxian: '',
+		huoshi: '弱',
+		manyan: '',
+		dixing: '',
+		podu: '',
+		shuiyuan: '',
+		linmuzhonglei: '',
+		fangan: '实施方案：通过两翼或多点进行突破。',
+		wenxian: '论文：《扑救夏季森林火灾的几点思考_寇先敏》'
+	},
+	{
+		name: '分段包片、守清结合',
+		weizhi: '黑龙江地区',
+		jijie: '夏',
+		fengli: '',
+		fengxiang: '',
+		huoxian: '',
+		huoshi: '',
+		manyan: '',
+		dixing: '',
+		podu: '',
+		shuiyuan: '',
+		linmuzhonglei: '',
+		fangan: '实施方案：①选派多个分队对关键部位（如枯立木、风倒木、石塘林、林带边缘等）进行清理，' +
+			'避免复燃；②将整个火线分成若干地段， 指定小分队沿火线反复巡查清理；③明火扑灭后，如火场上无极特殊地 段，可全线用兵，向火场纵深清理，巩固战果。',
+		wenxian: '论文：《扑救夏季森林火灾的几点思考_寇先敏》'
+	},
+	{
+		name: '先控后围、前打后清、守隔结合',
+		weizhi: '原始森林',
+		jijie: '',
+		fengli: '',
+		fengxiang: '',
+		huoxian: '',
+		huoshi: '',
+		manyan: '',
+		dixing: '',
+		podu: '',
+		shuiyuan: '',
+		linmuzhonglei: '',
+		fangan: '装备：直升机。实施方案：①利用直升机快速多点投放兵力；②地面部队多路穿插投入火线。',
+		wenxian: '论文：《森林消防中装备和战法运用的探讨_马勇健》'
+	},
+	{
+		name: '先保重点、打隔结合、择机点烧',
+		weizhi: '林草或农林结合部',
+		jijie: '',
+		fengli: '',
+		fengxiang: '',
+		huoxian: '',
+		huoshi: '',
+		manyan: '',
+		dixing: '',
+		podu: '',
+		shuiyuan: '',
+		linmuzhonglei: '',
+		fangan: '装备：大型挖掘设备' +
+			'实施方案：①集中主要力量堵截火头、保护重要目标；②组织配属力量利用大型机械在外围开挖隔离带，利用道路、河流等依托统一组织点烧，以火攻火。',
+		wenxian: '论文：《森林消防中装备和战法运用的探讨_马勇健》'
+	},
+	{
+		name: '混交林区的灭火战法',
+		weizhi: '西藏',
+		jijie: '',
+		fengli: '',
+		fengxiang: '',
+		huoxian: '',
+		huoshi: '弱',
+		manyan: '快',
+		dixing: '高山峡谷',
+		podu: '',
+		shuiyuan: '有',
+		linmuzhonglei: '亚高山暗针叶林、' +
+			'针阔叶混 交林、' + 
+			'山地柏树林、' +
+			'山地温带松林、' +
+			'硬叶常绿阔叶林、' +
+			'山 地落叶阔叶林、' +
+			'山地亚热带常绿阔叶林、' +
+			'热带森林',
+		fangan: '装备：高压水泵、灭火机具' +
+			'实施方案：①发生在山地两旁边，采取两翼夹击、 隔阻火头；②火势若、面积大，配合灭火机具，正面堵截，多点突破；③重点区域，高压水泵灭火。',
+		wenxian: '论文：《川西南高山峡谷区森林航空灭火技战法研究_林继平》'
+	},
+	{
+		name: '多翼并进、攻克火 头战法',
+		weizhi: '西藏',
+		jijie: '',
+		fengli: '',
+		fengxiang: '',
+		huoxian: '',
+		huoshi: '',
+		manyan: '',
+		dixing: '高山',
+		podu: '',
+		shuiyuan: '',
+		linmuzhonglei: '',
+		fangan: '装备：高压水泵' +
+			'实施方案：从火线最低点，通过水泵和水枪，扑打逆、侧风火',
+		wenxian: '论文：《西藏林芝地区森林灭火战法研究_张勇》'
+	},
+
+]

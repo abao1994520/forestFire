@@ -62,6 +62,11 @@ const menus = reactive({
       name: "灾后评估",
       url: "postDisasterAssess"
     },
+    {
+      name: "打火策略",
+      url: "strategyView"
+    },
+    
   ]
 })
 
