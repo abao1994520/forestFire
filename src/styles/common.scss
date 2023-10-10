@@ -92,7 +92,15 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-
+.pull-flex {
+    display: flex;
+}
+.pull-justify-center {
+    justify-content: center;
+}
+.pull-align-center {
+    align-items: center;
+}
 .hidden {
     display: none;
 }
