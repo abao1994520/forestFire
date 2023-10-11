@@ -18,7 +18,15 @@ export const fireSiteNumber = [{
 		kxd: '87%',
 		xys: '1个',
 		city: '杭州市',
-		isSpread: true
+		isSpread: true,
+
+		weizhi: [121.549792, 29.868388],
+		jijie: '春',
+		fengli: '3级',
+		fengxiang: '西北风',
+		huoxian: '2.5公里',
+		huoshi: '8平方公里',
+		manyan: '10公里/小时',
 	},
 	{
 		value: `CHN20230811-486`,
@@ -31,7 +39,15 @@ export const fireSiteNumber = [{
 		mj: '0.0026公顷',
 		kxd: '87%',
 		xys: '1个',
-		city: '温州市'
+		city: '温州市',
+
+		weizhi: [120.672111, 28.000575],
+		jijie: '春',
+		fengli: '3级',
+		fengxiang: '西北风',
+		huoxian: '2.5公里',
+		huoshi: '8平方公里',
+		manyan: '10公里/小时',
 	},
 	{
 		value: `CHN20230811-248`,
@@ -44,7 +60,15 @@ export const fireSiteNumber = [{
 		mj: '0.0026公顷',
 		kxd: '87%',
 		xys: '1个',
-		city: '金华市'
+		city: '金华市',
+
+		weizhi: [119.649506, 29.089524],
+		jijie: '春',
+		fengli: '3级',
+		fengxiang: '西北风',
+		huoxian: '2.5公里',
+		huoshi: '8平方公里',
+		manyan: '10公里/小时',
 
 	},
 	{
@@ -58,7 +82,15 @@ export const fireSiteNumber = [{
 		mj: '0.0026公顷',
 		kxd: '87%',
 		xys: '1个',
-		city: '舟山市'
+		city: '舟山市',
+
+		weizhi: [122.106863, 30.016028],
+		jijie: '春',
+		fengli: '3级',
+		fengxiang: '西北风',
+		huoxian: '2.5公里',
+		huoshi: '8平方公里',
+		manyan: '10公里/小时',
 	},
 
 ]

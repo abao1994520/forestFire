@@ -252,9 +252,9 @@
                   @click="showModal.analysisDetails = item">
                   <div class="panel_tltle" style="margin-bottom: 6px;">{{ item.name }}</div>
                   <div>{{ item.fangan }}</div>
-                  <div>
+                  <!-- <div>
                     <n-tag :bordered="false" type="warning" size="small">{{ item.wenxian }}</n-tag>
-                  </div>
+                  </div> -->
                 </li>
               </TransitionGroup>
             </n-scrollbar>
@@ -266,24 +266,43 @@
       </div>
 
       <div v-else>
-        <div class="panel_tltle" style="margin-bottom: 6px;">
-          {{ showModal.analysisDetails.name }}
-        </div>
-        <div style="margin: 16px 0;">{{ showModal.analysisDetails.fangan }}</div>
-        <div class="panel_tltle" style="margin-bottom: 6px;">适用条件：</div>
-        <n-space>
-          <template v-for="(item, index) in showModal.xiangqing">
-            <n-tag 
+        <n-scrollbar style="max-height: 370px">
+
+          <div class="panel_tltle" style="margin-bottom: 6px;">
+            {{ showModal.analysisDetails.name }}
+          </div>
+          <div style="margin: 16px 0;">{{ showModal.analysisDetails.fangan }}</div>
+
+          <div class="panel_tltle" style="margin-bottom: 6px;">火点态势分析：</div>
+          <ul class="clearfix">
+            <template v-for="(item, index) in showModal.xiangqing">
+            <li 
               :key="index" 
-              :bordered="false" 
-              type="info"
-              v-if="showModal.analysisDetails[item.key]"
-              size="small">{{item.title}}：{{ showModal.analysisDetails[item.key] }}</n-tag>
-          </template>
-        </n-space>
-        <div style="margin-top: 16px;">
-          <n-tag :bordered="false" type="warning" size="small">{{ showModal.analysisDetails.wenxian }}</n-tag>
-        </div>
+              v-if="showModal.data[item.key]" 
+              style="margin-bottom: 10px;width: 50%"
+              class="pull-left">
+              <n-tag 
+                :bordered="false" 
+                type="warning"
+                size="small">{{item.title}}：{{showModal.data[item.key]}}</n-tag>
+            </li>
+            </template>
+          </ul>
+          
+
+          <div class="panel_tltle" style="margin-bottom: 6px;">适用条件：</div>
+          <n-space>
+            <template v-for="(item, index) in showModal.xiangqing">
+              <n-tag 
+                :key="index" 
+                :bordered="false" 
+                type="info"
+                v-if="showModal.analysisDetails[item.key]"
+                size="small">{{item.title}}：{{ showModal.analysisDetails[item.key] }}</n-tag>
+            </template>
+          </n-space>
+          
+        </n-scrollbar>
 
 
 
