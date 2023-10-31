@@ -8,7 +8,7 @@ export default [
     children: [
       {
         path: '/fireDetails',
-        name: '火点详情',
+        name: '火点态势',
         component: () => import(/* webpackChunkName: "maintain" */ '@/pages/fireDetailsView/index.vue'),
         meta: { keepAlive: true },
       },

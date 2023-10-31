@@ -49,7 +49,7 @@ let header_pinyin = window.header_pinyin;
 const menus = reactive({
   data: [
     {
-      name: "火点详情",
+      name: "火点态势",
       url: "fireDetails",
       _selected: false
     },
